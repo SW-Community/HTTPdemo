@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>缩写查词 - 好好说话网</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+            crossorigin="anonymous"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function fun() {
+            var text = $("#abbr").val();
+            if(text=="")
+            {
+                alert("请先输入查询内容");
+                return;
+            }
+            $.ajax({
+                url: "/MyDemo",
+                type: "GET",
+                data: {
+                    "abbr": text
+                },
+                success: function (data) {
+                    $("#output").text(data);2
+                }
+            })
+        }
+    </script>
+    <style>
+        div {
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            color: rgb(1, 46, 16);
+            position: absolute;
+            top: 20px;
+            left: 10px;
+        }
+    </style>
+    <style>
+        .col-lg-6 {
+            float: left;
+            position: relative;
+            left: 30%;
+            width: 500px
+        }
+
+        .panel {
+            margin: auto;
+            width: 50%;
+            height: 300px
+        }
+    </style>
+</head>
+<body background="js/backgroud1.jpg">
+<!--页首-->
+<div>
+    <img src="js/backgroud.jpg" alt="backgroud" style="width: 100%;height:150.8px">
+    <h1>能不能好好说话</h1>
+    <table id="table_tittle" width="100%">
+        <tr>
+            <td align="center">主创&站长：Steve</td>
+            <td align="center">开发小组名单：Steve，宋昕霓，沐思遥，黄欣灵</td>
+            <td align="center">GitHub仓库地址：<a target="_blank" href="https://github.com/SteveWorkshop/JAVA_WEB_PROJECT_FOR_SDUWH">👉戳这👈</a></td>
+            <td align="center">
+                <a target="_blank"
+                   href="https://qm.qq.com/cgi-bin/qm/qr?k=ZlT05RRqdBXRKnvG-pQu5I57cW7gIfWu&jump_from=webapi"><img
+                        border="0" src="js/button.jpg" width="200px" height="30px" alt="开发小组QQ群"
+                        title="开发小组QQ群"></a>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--页首-->
+<!--导航条-->
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="index.html">主页</a></li>
+    <li role="presentation" class="active"><a href="#">能不能好好说话！</a></li>
+    <li role="presentation"><a href="HotWord.html">热词大赏</a></li>
+    <li role="presentation"><a href="inputYourWord.html">我有更fashion的词！</a></li>
+</ul>
+<!--导航条-->
+<!--彩条-->
+<div class="progress">
+    <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 100%">
+        <span class="sr-only">100% Complete (warning)</span>
+    </div>
+</div>
+<!--彩条-->
+<!--裝飾業-->
+<br>
+<table align="center">
+    <tr>
+        <td>
+            <div><img src="js/meiyouji1.jpg" class="img-responsive" alt="你学废了吗" height="200" width="200"></div>
+        </td>
+        <td><p class="text-center">xsl,xdm,gkd到底是什么意思......</p>
+            <p class="text-center">聊天越来越力不从心，和现在的小朋友聊天，真是不禁想呐喊：“能不能好好说话？”</p>
+            <p class="text-center">在这里输入晦涩难懂的首字母语言，来更畅快的交流吧！</p>
+        </td>
+    </tr>
+</table>
+<br>
+<!--搜索框-->
+
+<div class="col-lg-6">
+    <div class="input-group">
+        <input id="abbr" type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" onclick="fun()">翻译为人话</button>
+        </span>
+    </div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+
+<br>
+<br>
+<br>
+<!--输出框-->
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h3 class="panel-title">翻译结果</h3>
+    </div>
+    <div id="output" class="panel-body">
+        等待翻译。。。
+    </div>
+</div>
+<!--裝飾業-->
+
+
+<div class="bg-info">
+    <!-- On rows -->
+    <table align="center" class="table table-condensed">
+        <tr class="info">
+            <td class="info" align="center" colspan="4">Copyright &copy; 2014-2022 Steve Workshop. All Rights
+                Rerserved.
+            </td>
+        </tr>
+        <tr class="info">
+            <td class="info" align="center">公安网备：不存在的！</td>
+            <td class="info" align="center">ICP证：也不存在的！</td>
+            <td class="info" align="center"><a href="about.html">关于我们</a></td>
+            <td class="info" align="center">Steve Workshop 运营：无许可信息</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
